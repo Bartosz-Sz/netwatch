@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from './Sidebar.module.scss';
 
-function Sidebar() {
+const Sidebar: React.FunctionComponent = ({ children }) => {
   return (
-    <div className={styles.wrapper}>Hello from Sidebar!</div>
+    <div className={styles.wrapper}>
+      { children }
+    </div>
   )
 }
 

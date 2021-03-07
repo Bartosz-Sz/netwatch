@@ -1,0 +1,31 @@
+.tabbed-wrapper {
+  display: flex;
+  flex-flow: column;
+
+  .tabBar {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 38px;
+
+    .tab {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+
+      .tabName {
+        width: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      &:hover {
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .content {
+    flex-grow: 1;
+  }
+}

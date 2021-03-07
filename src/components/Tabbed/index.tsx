@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Tabbed.module.scss';
+import './Tabbed.scss';
 
 interface Props {
   tabs: Array<{
@@ -16,31 +16,37 @@ class Tabbed extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
+    this.activateTab.bind(this);
+
     this.state = {
       activeTab: 0,
     };
-  }
-
-  get tabBar() {
-    const tabs = this.props.tabs.map((t) => {
-      return (<div className={styles.tab}>
-        { t.name }
-      </div>);
-    });
-    return (<div className={styles.tabBar}>
-      { tabs }
-    </div>)
   }
 
   get activeChild() {
     return this.props.tabs[this.state.activeTab].child
   }
 
+  activateTab(tabIndex: number) {
+    this.setState({ activeTab: tabIndex })
+  }
+
+  get tabBar() {
+    const tabs = this.props.tabs.map((t, i) => {
+      return (<div className="tab" onClick={ () => this.activateTab(i) }>
+        <div className="tabName">{ t.name }</div>
+      </div>);
+    });
+    return (<div className="tabBar">
+      { tabs }
+    </div>)
+  }
+
   render() {
     return (
-      <div className={styles.wrapper}>
+      <div className="tabbed-wrapper">
         { this.tabBar }
-        <div className={styles.content}>
+        <div className="content">
           { this.activeChild }
         </div>
       </div>
