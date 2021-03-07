@@ -1,13 +1,15 @@
 import React from 'react';
 import styles from './Monitor.module.scss';
 import TopBar from '../TopBar';
+import NetView from '../NetView';
 import Sidebar from '../Sidebar';
 import Tabbed from '../Tabbed';
-import NetView from '../NetView';
+import Statistics from '../Statistics';
+import Storage from '../Storage';
+import TrafficGen from '../TrafficGen';
+import NetSelector from '../NetSelector';
 
 const Monitor: React.FunctionComponent = () => {
-  // const testChild = (<div>Test tab content</div>)
-
   return (
     <div className={styles.frame}>
       <TopBar/>
@@ -16,8 +18,10 @@ const Monitor: React.FunctionComponent = () => {
         <Sidebar>
           <Tabbed
             tabs={[
-              { name: 'testTab1', child: 'Test tab 1 content' },
-              { name: 'testTab2', child: 'Test tab 2 content' }
+              { name: 'Stats', child: <Statistics /> },
+              { name: 'Storage', child: <Storage /> },
+              { name: 'Traffic Gen.', child: <TrafficGen /> },
+              { name: 'Networks', child: <NetSelector /> },
             ]}
           />
         </Sidebar>
