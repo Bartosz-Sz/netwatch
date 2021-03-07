@@ -7,10 +7,8 @@ import NetView from '../NetView';
 function Monitor() {
   return (
     <div className={styles.frame}>
-      <div className="topBar">
-        <TopBar/>
-      </div>
-      <div>
+      <TopBar/>
+      <div className={styles.main}>
         <NetView/>
         <Sidebar/>
       </div>

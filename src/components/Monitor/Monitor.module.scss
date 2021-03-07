@@ -4,4 +4,10 @@
   background-color: paleturquoise;
   display: flex;
   flex-flow: column;
+
+  .main {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+  }
 }
